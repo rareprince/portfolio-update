@@ -1,0 +1,66 @@
+
+.modalBackground {
+  width: 90vw;
+  height: 100vh;
+  background-color: rgba(200, 200, 200);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: white;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
+  justify-content: center;
+
+}
+
+.container .closeBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container .closeBtn .tCancel {
+  background: crimson;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 40%;
+  border: none;
+}
+.container .closeBtn button {
+  cursor: pointer;
+}
+
+.container .body {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px
+}
+
+.container .footer button {
+  width: 100px;
+  height: 35px;
+  margin: 10px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+  font-size: 17px;
+  cursor: pointer;
+  justify-content: center;
+  font-weight: bold;
+  align-items: center;
+}
+
+#cancelBtn {
+  background-color: crimson;
+
+}
