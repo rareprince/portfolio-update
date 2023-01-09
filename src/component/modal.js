@@ -1,39 +1,48 @@
 import React from "react";
 import "./repo.css";
 
-export default function Modal({ closeRepo }) {
-
-  const Repository = (props) => {
-    const { repo } = props;
-    console.log(repo.data);
-
-  
+export default function Modal({ closeModal, repositories }) {
+  const Repository = () => {
     const listRepos =
-      repo.length !== 0 ? (
-        repo.data.map((item) => <li key={item.id}>{item.name}</li>))
-   : (
-        <p>Please Enter Your Username</p>
+      repositories?.length !== 0 ? (
+        repositories?.map((item) => (
+          <li className="repo-list" key={item.id}>
+            <a
+              href={item.html_url}
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "none", color: "initial" }}
+            >
+              {item.name}
+            </a>
+          </li>
+        ))
+      ) : (
+        <p>You don't have any respository listed in your profile</p>
       );
-    
-    return <ul>{listRepos}</ul>
-  }
+
+    return <ul className="repo-list-container">{listRepos}</ul>;
+  };
 
   return (
     <div className="modalBackground">
-      <div className="container">
-        <div className="closeBtn">
-          <button onClick={() => closeRepo(false)} className="tCancel" > X </button>
-        </div>
-        <div className="body">
-          <h2>My Repository</h2>
-
-          <p>Here are the Repositories available</p>        
-        </div>
-        {{ Repository }}
-        <div className="footer">
-          <button onClick={() => closeRepo(false)} id="cancelBtn">
-            Close
-          </button>
+      <div className="modalContainer">
+        <div className="container">
+          <div className="closeBtn">
+            <button onClick={closeModal} className="tCancel">
+              {" "}
+              X{" "}
+            </button>
+          </div>
+          <div className="body">
+            <h2>Your Public Repositories</h2>
+            {Repository()}
+          </div>
+          <div className="footer">
+            <button onClick={closeModal} id="cancelBtn">
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>
